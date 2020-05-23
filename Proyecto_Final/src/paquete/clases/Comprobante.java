@@ -10,5 +10,5 @@ package paquete.clases;
  * @author Nikolas
  */
 public class Comprobante {
-    //AALAOS..
+    //AALAAAOS
 }
