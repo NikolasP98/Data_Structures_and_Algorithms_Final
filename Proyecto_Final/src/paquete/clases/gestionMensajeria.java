@@ -9,6 +9,6 @@ package paquete.clases;
  *
  * @author Nikolas
  */
-public class Tarificador {
-    //hola
+public class gestionMensajeria {
+    
 }
