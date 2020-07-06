@@ -31,6 +31,7 @@ public class Comprobante {
         this.tipoFormato();
         
         this.fecha = df.format(dateobj);
+        this.setMonto();
     }
     
 
@@ -89,8 +90,10 @@ public class Comprobante {
         return monto;
     }
 
-    public void setMonto(double monto) {
-        this.monto = monto;
+    public void setMonto() {
+        
+        Tarificador t = new Tarificador(this.ciudad_origen, this.ciudad_destino);
+        this.monto = t.calcularPrecio();
     }
 
     public void tipoFormato(){
@@ -109,6 +112,14 @@ public class Comprobante {
                 "\nCiudad_destino: " + ciudad_destino +
                 "\nFecha: " + fecha +
                 "\nMonto: " + monto;
+    }
+    public static void main(String[] args) {
+        Comprobante c = new Comprobante(1,"San Miguel","Surco",150);
+        c.verInfo();
+        
+        System.out.println(c.getMonto());
+        c.verInfo();
+        
     }
 }
 
