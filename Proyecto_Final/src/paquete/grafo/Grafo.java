@@ -15,87 +15,70 @@ package paquete.grafo;
  * and open the template in the editor.
  */
 
-import java.util.*; 
-import java.lang.*; 
-import java.io.*; 
-
-/**
- *
- * @author Asus
- */
 public class Grafo {
     
-    
-    // A Java program for Dijkstra's single source shortest path algorithm. 
-// The program is for adjacency matrix representation of the graph 
+    static final int cant_Vertices = 15;
 
-  
-
-    // A utility function to find the vertex with minimum distance value, 
-    // from the set of vertices not yet included in shortest path tree 
-    static final int Vertice = 9; 
-    int minDistancia(int dist[], Boolean sptSet[]) 
+    int minDistancia(int dist[], Boolean camino_valido[]) 
     { 
-        // Initialize min value 
-        int min = Integer.MAX_VALUE, min_index = -1; 
+        // int min, al final de ejecutar el algoritmo, tiene que contener la distancia minima para llegar de un punto a otro
+        int min = Integer.MAX_VALUE;
+        int indice_min = -1; 
   
-        for (int v = 0; v < Vertice; v++) 
-            if (sptSet[v] == false && dist[v] <= min) { 
-                min = dist[v]; 
-                min_index = v; 
-            } 
-  
-        return min_index; 
+        for (int j = 0; j < cant_Vertices; j++) {
+            if (camino_valido[j] == false && dist[j] <= min) { 
+                min = dist[j]; 
+                indice_min = j; 
+            }
+        }
+        return indice_min; 
     } 
   
     // A utility function to print the constructed distance array 
     void printSolution(int dist[]) 
     { 
         System.out.println("Vertex \t\t Distance from Source"); 
-        for (int i = 0; i < Vertice; i++) 
+        for (int i = 0; i < cant_Vertices; i++) 
             System.out.println(i + " \t\t " + dist[i]); 
     } 
   
-    // Function that implements Dijkstra's single source shortest path 
-    // algorithm for a graph represented using adjacency matrix 
-    // representation 
-    void dijkstra(int graph[][], int src) 
+    // Aplicar algoritmo a grafo de adyacencia
+    void caminoOptimo(int grafo[][], int src) 
     { 
-        int dist[] = new int[Vertice]; // The output array. dist[i] will hold 
-        // the shortest distance from src to i 
+        int dist[] = new int[cant_Vertices];
   
-        // sptSet[i] will true if vertex i is included in shortest 
+        // camino_valido[i] will true if vertex i is included in shortest 
         // path tree or shortest distance from src to i is finalized 
-        Boolean sptSet[] = new Boolean[Vertice]; 
+        Boolean camino_valido[] = new Boolean[cant_Vertices]; 
   
         // Initialize all distances as INFINITE and stpSet[] as false 
-        for (int i = 0; i < Vertice; i++) { 
+        for (int i = 0; i < cant_Vertices; i++) { 
             dist[i] = Integer.MAX_VALUE; 
-            sptSet[i] = false; 
+            camino_valido[i] = false; 
         } 
   
         // Distance of source vertex from itself is always 0 
         dist[src] = 0; 
   
-        // Find shortest path for all vertices 
-        for (int count = 0; count < Vertice - 1; count++) { 
-            // Pick the minimum distance vertex from the set of vertices 
+        // Find shortest path for all cant_Verticess 
+        for (int count = 0; count < cant_Vertices - 1; count++) { 
+            // Pick the minimum distance vertex from the set of cant_Verticess 
             // not yet processed. u is always equal to src in first 
             // iteration. 
-            int u = minDistancia(dist, sptSet); 
+            int u = minDistancia(dist, camino_valido); 
   
             // Mark the picked vertex as processed 
-            sptSet[u] = true; 
+            camino_valido[u] = true; 
   
-            // Update dist value of the adjacent vertices of the 
+            // Update dist value of the adjacent cant_Verticess of the 
             // picked vertex. 
-            for (int v = 0; v < Vertice; v++) 
+            for (int v = 0; v < cant_Vertices; v++) 
   
-                // Update dist[v] only if is not in sptSet, there is an 
+                // Update dist[v] only if is not in camino_valido, there is an 
                 // edge from u to v, and total weight of path from src to 
                 // v through u is smaller than current value of dist[v] 
-                if (!sptSet[v] && graph[u][v] != 0 && dist[u] != Integer.MAX_VALUE && dist[u] + graph[u][v] < dist[v]) 
-                    dist[v] = dist[u] + graph[u][v]; 
+                if (!camino_valido[v] && grafo[u][v] != 0 && dist[u] != Integer.MAX_VALUE && dist[u] + grafo[u][v] < dist[v]) 
+                    dist[v] = dist[u] + grafo[u][v]; 
         } 
   
         // print the constructed distance array 
@@ -105,18 +88,26 @@ public class Grafo {
     // Driver method 
     public static void main(String[] args) 
     { 
-        /* Let us create the example graph discussed above */
-        int graph[][] = new int[][] { { 0, 4, 0, 0, 0, 0, 0, 8, 0 }, 
-                                      { 4, 0, 8, 0, 0, 0, 0, 11, 0 }, 
-                                      { 0, 8, 0, 7, 0, 4, 0, 0, 2 }, 
-                                      { 0, 0, 7, 0, 9, 14, 0, 0, 0 }, 
-                                      { 0, 0, 0, 9, 0, 10, 0, 0, 0 }, 
-                                      { 0, 0, 4, 14, 10, 0, 2, 0, 0 }, 
-                                      { 0, 0, 0, 0, 0, 2, 0, 1, 6 }, 
-                                      { 8, 11, 0, 0, 0, 0, 1, 0, 7 }, 
-                                      { 0, 0, 2, 0, 0, 0, 6, 7, 0 } }; 
+        /* Let us create the example grafo discussed above */
+        int grafo[][] = new int[][] {
+            /*SAN MIGUEL*/  { 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            /*MAGDALENA*/   { 2, 0, 2, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            /*SAN ISIDRO*/  { 0, 2, 0, 1, 0, 0, 2, 0, 2, 3, 0, 0, 0, 0, 0},
+            /*MIRAFLORES*/  { 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0},
+            /*PUEBLO LIBRE*/{ 1, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            /*JESUS MARIA*/ { 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+            /*SURQUILLO*/   { 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+            /*BARRANCO*/    { 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0},
+            /*LINCE*/       { 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            /*SAN BORJA*/   { 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 0, 0},
+            /*CHORRILLOS*/  { 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0},
+            /*SURCO*/       { 0, 0, 0, 4, 0, 0, 3, 2, 0, 2, 1, 0, 0, 3, 4},
+            /*ATE*/         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 2, 0},
+            /*LA MOLINA*/   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 0, 3},
+            /*SJM*/         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0},
+                                    }; 
         Grafo t = new Grafo(); 
-        t.dijkstra(graph, 0); 
+        t.caminoOptimo(grafo, 0); 
     } 
 } 
 
