@@ -7,7 +7,7 @@ package paquete.grafo;
 
 /**
  *
- * @author Juan Diego Rojas
+ * @author Nikolas Pinon
  */
 /*
  * To change this license header, choose License Headers in Project Properties.
