@@ -7,14 +7,14 @@ package paquete.clases;
 
 import edu.ulima.eda.pilas.Pila;
 import paquete.clases.*;
-
+import edu.ulima.eda.pilas.*;
 /**
  *
  * @author Juan Diego Rojas
  */
-public class Lista_Comprobantes {
+public class Lista_Comprobantes extends Pila {
     
-
+    
 
 public static void main(String[] args) {
         
