@@ -6,39 +6,57 @@
 package edu.ulima.eda.pilas;
 
 import edu.ulima.eda.listas.ListaEnlazada;
-
+import edu.ulima.eda.pilas.IPila;
+import paquete.clases.Comprobante;
 /**
  *
  * @author JC
  */
 public class Pila implements IPila{
-    private ListaEnlazada lista;
-    
+    private Comprobante[] datos;
+    int cima;
+    private static final int TAM_MAX = 50;
+
     public Pila(){
-        lista = new ListaEnlazada();
+        datos = new Comprobante[TAM_MAX];
+        cima = -1;
     }
-    
+
     public boolean estaVacia(){
-        return (lista.getL() == null);
+        boolean estado = (cima == -1);
+        return estado;
     }
-    
-    public void apilar(Integer valor){
-        lista.insertarAlInicio(valor);
+
+    public boolean estaLlena(){
+        boolean estado = (cima + 1 == TAM_MAX);
+        return estado;
     }
-    
-    public Integer desapilar(){
-        Integer respuesta = null;
-        if(!this.estaVacia()){
-            //Obtener el valor del primer elemento (cima)
-            respuesta = lista.getL().info();
-            //Eliminar el primer elemento (cima)
-            lista.eliminarInicio();
+
+    public void apilar(Comprobante F){
+        if(!this.estaLlena()){
+            //cima vale 0
+            cima++;
+            datos[cima] = F;
+            ;
         }
-        return respuesta;
     }
-    
+
+    public Comprobante desapilar(){
+        Comprobante valor = null;
+        if(!this.estaVacia()){
+            valor = datos[cima];
+            cima--;
+        }
+        return valor;
+    }
+
     public void mostrarElementos(){
-        System.out.print("cima --> ");
-        lista.mostrarElementos();
+        for(int i = 0; i <= cima; i++){
+            System.out.print(datos[i].verInfo() + " -> ");
+        }
+        System.out.println("CIMA");
     }
+
+
+
 }

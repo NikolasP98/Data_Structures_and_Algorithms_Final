@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package paquete.clases;
-
+import edu.ulima.eda.pilas.Pila;
 /**
  *
  * @author Nikolas
  */
 public class ClienteCorporativo {
+    Pila p = new Pila();
     private int ruc;
     private String razonSocial;
     
@@ -52,20 +53,18 @@ public class ClienteCorporativo {
     }
 
     // Metodos
-    public void AgregarComprobante(Comprobante comp){
+    public void AgregarComprobante(Comprobante t){
         // TODO: llamar el metodo de Lista_Comprobante que agrega comprobantes a la lista.
         
+        // TODO: Poner MostrarElementos en ventana
         
-        System.out.println("Comprobante "+ comp +" agregado a la lista");
     }
     
-    // TODO: lista.verInfo() debe mostrar la lisat completa de comprobantes. Se construye en la clase Lista_Comprobantes.
-    public String verInfo() {
-        return "ClienteCorporativo:" + 
-                "\nRUC: " + ruc +
-                "\nRazon Social:" + razonSocial;
-                //"Lista: " + lista.verInfo();
+    public static void main(String[] args) {
+        
+        Pila z = new Pila();
+        Comprobante t = new Comprobante (1,"CiudadOrigen","CiudadDestino",150);
+        z.apilar(t);
+        z.mostrarElementos();
     }
-    
-    
 }

@@ -4,21 +4,21 @@
  * and open the template in the editor.
  */
 package edu.ulima.eda.listas;
-
+import paquete.clases.Comprobante;
 /**
  *
  * @author Juan Diego Rojas
  */
 public class Nodo {
-    private int info;
+    private Comprobante info;
     private Nodo siguiente;
     
-    public Nodo(int info){
+    public Nodo(Comprobante info){
         this.info = info;
         this.siguiente = null;
     }
     
-    public int info(){
+    public Comprobante info(){
         return info;
     }
     
