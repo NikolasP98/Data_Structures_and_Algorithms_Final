@@ -68,6 +68,7 @@ public class Ventana1 extends javax.swing.JFrame {
         jLabel1.setText("CLIENTE CORPORATIVO");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setLabelFor(NOMBRE_CLIENTE);
         jLabel3.setText("Nombre:");
 
         NOMBRE_CLIENTE.addActionListener(new java.awt.event.ActionListener() {
@@ -105,10 +106,12 @@ public class Ventana1 extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setLabelFor(DESTINO);
         jLabel10.setText("DESTINO");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel11.setLabelFor(ORIGEN);
         jLabel11.setText("ORIGEN");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -287,6 +290,7 @@ public class Ventana1 extends javax.swing.JFrame {
         TOTAL_GENERAL.setText("-");
 
         jLabel9.setFont(new java.awt.Font("HelveticaNeueLT Std Med", 1, 14)); // NOI18N
+        jLabel9.setLabelFor(TABLA_CLIENTES);
         jLabel9.setText("LISTA DE CLIENTES");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

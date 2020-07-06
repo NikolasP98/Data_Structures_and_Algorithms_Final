@@ -145,6 +145,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="NOMBRE_CLIENTE"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nombre:"/>
               </Properties>
             </Component>
@@ -324,6 +327,9 @@
                           <Font name="Tahoma" size="11" style="1"/>
                         </Property>
                         <Property name="horizontalAlignment" type="int" value="4"/>
+                        <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="DESTINO"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="DESTINO"/>
                       </Properties>
                     </Component>
@@ -333,6 +339,9 @@
                           <Font name="Tahoma" size="11" style="1"/>
                         </Property>
                         <Property name="horizontalAlignment" type="int" value="4"/>
+                        <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="ORIGEN"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="ORIGEN"/>
                       </Properties>
                     </Component>
@@ -537,6 +546,9 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="HelveticaNeueLT Std Med" size="14" style="1"/>
+                </Property>
+                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="TABLA_CLIENTES"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="LISTA DE CLIENTES"/>
               </Properties>
