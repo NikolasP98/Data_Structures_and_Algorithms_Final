@@ -10,5 +10,11 @@ package paquete.clases;
  * @author Nikolas
  */
 public class Tarificador {
-    
+	private String origen, destino;
+	private double precio_total;
+	private int distancia;
+
+	private final double costo = 3.5;
+
+	
 }
