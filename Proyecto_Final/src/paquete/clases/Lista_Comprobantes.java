@@ -5,10 +5,21 @@
  */
 package paquete.clases;
 
+import edu.ulima.eda.pilas.Pila;
+import paquete.clases.*;
+
 /**
  *
- * @author Nikolas
+ * @author Juan Diego Rojas
  */
 public class Lista_Comprobantes {
     
+
+
+public static void main(String[] args) {
+        
+        Pila z = new Pila();
+        Comprobante t = new Comprobante (1,"CiudadOrigen","CiudadDestino",150);
+        z.desapilar();
+    }
 }

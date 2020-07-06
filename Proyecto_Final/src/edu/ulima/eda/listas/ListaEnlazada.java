@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package edu.ulima.eda.listas;
+import paquete.clases.Comprobante;
+
 
 /**
  *
@@ -33,7 +35,7 @@ public class ListaEnlazada {
         System.out.println("null");
     }
     
-    public void insertarAlInicio(int valor){
+    public void insertarAlInicio(Comprobante valor){
         //Creacion de nodo
         Nodo nuevoNodo = new Nodo(valor);
         //Si la lista esta vacia
@@ -49,7 +51,7 @@ public class ListaEnlazada {
         L = nuevoNodo;
     }
     
-    public void insertarAlFinal(int valor){
+    public void insertarAlFinal(Comprobante valor){
         //Crear nuevo nodo
         Nodo nuevoElemento = new Nodo(valor); 
         //Si la lista esta vacia, insertar al inicio
@@ -68,7 +70,7 @@ public class ListaEnlazada {
         }
     }
 
-    public void insertarAntes(int item, int ref){
+    public void insertarAntes(Comprobante item, Comprobante ref){
         //Creacion del nuevo nodo
         Nodo nuevoNodo = new Nodo(item);
         //Necesitamos 2 referencias: elemento de valor "ref" y el anterior a este
@@ -115,7 +117,7 @@ public class ListaEnlazada {
         }
     }
         
-    public void eliminarElemento(int valor){
+    public void eliminarElemento(Comprobante valor){
         if(L != null){
             if(L.info() == valor){
                 eliminarInicio();

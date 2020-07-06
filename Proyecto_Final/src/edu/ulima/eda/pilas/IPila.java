@@ -5,12 +5,13 @@
  */
 package edu.ulima.eda.pilas;
 
+import paquete.clases.Comprobante;
 /**
  *
  * @author Juan Diego Rojas
  */
 public interface IPila {
-    public void apilar(Integer item);
-    public Integer desapilar();
+    public void apilar(Comprobante item);
+    public Comprobante desapilar();
     public boolean estaVacia();
 }
