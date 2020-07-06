@@ -21,5 +21,6 @@ public static void main(String[] args) {
         Pila z = new Pila();
         Comprobante t = new Comprobante (1,"CiudadOrigen","CiudadDestino",150);
         z.desapilar();
+        
     }
 }
